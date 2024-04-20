@@ -10,10 +10,10 @@
     follow_redirects: all
     return_content: yes
     status_code: 200
+    validate_certs: "{{ jumpcloud_api_ssl_validate }}"
   delegate_to: localhost
   register:  jc_system_attributes_json_response
   ignore_errors: yes
-  validate_certs: "{{ jumpcloud_api_ssl_validate }}"
   when: jumpcloud_system_key is defined
 
 - name: Define if System is registered in JumpCloud
